@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
   resources :comments
+  get '/', to: 'application#welcome'
+  get '/login', to: 'sessions#login'
+  get '/signup', to: 'sessions#new'
 end
