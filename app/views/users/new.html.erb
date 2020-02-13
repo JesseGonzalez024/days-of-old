@@ -1,1 +1,19 @@
-New Page
+New Page for user
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+    <%= f.label 'Username' %>
+    <%= f.text_field :username %>
+    <%= f.label 'password' %>
+    <%= f.text_field :password %>
+    <%= f.submit "Create Account" %>
+<% end %>

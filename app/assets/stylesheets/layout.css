@@ -1,0 +1,17 @@
+html {
+    background-image: url("https://2b2gdzjtaey3o01p41qinbri-wpengine.netdna-ssl.com/wp-content/uploads/1453-The-Fall-of-Constantinople.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+   background: white;
+   margin: auto;
+   max-width: 960px;
+   padding: 2.25%;
+   width: 85%;
+}
