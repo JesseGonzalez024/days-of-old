@@ -10,10 +10,17 @@
   </head>
 
   <body>
-    <main>
-      <div id="yield_elements">
+    <h4>The Great Unknown...</h4>
+    <div id="time_line">
+    <br>
+      <% Post.all.each do |post| %>
+        <ul>
+          <li><%= link_to "#{post.title}", post_path(post) %></li>
+        </ul>
+      <% end %>
+    </div>
+    <div id="main">
         <%= yield %>
-      </div>
-    </main>
+    </div>
   </body>
 </html>

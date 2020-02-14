@@ -12,7 +12,27 @@ body {
    background: white;
    margin: auto;
    max-width: auto;
-   padding: 2.25%;
+   margin-top: 40px;
+   padding: 3.25%;
    width: 85%;
+   length: auto;
+}
+
+h4 {
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+main {
+    margin: 20px; 
+    border: 0;
+    text-align: right;
+    padding-right: 50px;
+}
+
+#time_line {
+    border-left:solid black 3px;
+    margin-left: 70px;
+
 }
 
