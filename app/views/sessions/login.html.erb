@@ -1,9 +1,10 @@
 User Log in
-<% #binding.pry %>
+<%= flash[:error] %>
+
 <%= form_tag('/login', method: :post) do %>
     <label> Username: </label>  
-        <%= text_field_tag :'user[:username]'%><br>
+        <%= text_field_tag :'user[username]'%><br>
     <label> Password: </label>
-        <%= text_field_tag :'user[:password]'%><br>
+        <%= text_field_tag :'user[password]'%><br>
     <%= submit_tag "Log In"%>
 <% end %>

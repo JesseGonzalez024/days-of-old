@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    #before_action :require_login
+    before_action :require_login
     
     def index
         @posts = Post.all
@@ -8,23 +8,33 @@ class PostsController < ApplicationController
         @post = Post.new
     end
     def create
+        @post = Post.new(post_params)
+        @post.user_id = session[:user_id]
         
+        if @post.valid?
+            @post.save
+            redirect_to :action => "index"
+        else 
+           render :new
+        end
+   
     end
     def show 
-
-    end
-    def edit
-
-    end
-    def update
-
+        @post = Post.find_by_id(params[:id])
     end
     def destroy
-        
+        @post = Post.find_by_id(params[:id])
+        if current_user
+            @post.destroy
+            redirect_to posts_path
+        end 
     end
     
-    private 
-        # def require_login
-        #     return head(:forbidden) unless session.include? :user_id
-        # end
+    private
+    def post_params
+        params.require(:post).permit(:title, :year, :content)
+    end
+        def require_login
+            return head(:forbidden) unless session.include? :user_id
+        end
 end

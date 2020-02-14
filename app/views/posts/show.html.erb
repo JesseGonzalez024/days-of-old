@@ -1,1 +1,11 @@
-Specific posts belonging to user to add comments
+<% #binding.pry %>
+<fieldset>
+    <legend><h4><%= @post.title %></h4></legend>
+    <p><%= @post.year %></p>
+    <p><%= @post.content %></p>
+    <br>
+</fieldset>
+<br>
+<%= button_to 'Delete Post', post_path, method: :delete %>
+<br>
+<%= button_to 'Return to Profile', user_path(current_user), method: :get %>

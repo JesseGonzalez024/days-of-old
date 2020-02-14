@@ -1,1 +1,16 @@
 All your posts
+<% current_user.posts.each do |post| %>
+    <ul>
+        <fieldset>
+            <legend><h4>Post by: <%=current_user.username %></h4></legend>
+                <li><%= link_to "#{post.title}", post_path(post)  %></li>
+        </fieldset>
+    </ul>
+<% end %>
+<br>
+<br>
+<%= button_to 'Return to Profile', user_path(current_user), method: :get %>
+<br>
+<%= button_to  "New Post", new_post_path, method: :get %>
+<br>
+<%= button_to  "Add Comment", new_comment_path, method: :get %>

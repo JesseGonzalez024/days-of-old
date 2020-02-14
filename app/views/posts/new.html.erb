@@ -12,9 +12,11 @@ Create a new post
 <% end %>
 
 <%= form_for @post do |f| %>
-    <%= f.label 'Username' %>
-    <%= f.text_field :username %>
-    <%= f.label 'password' %>
-    <%= f.text_field :password %>
-    <%= f.submit "Create Account" %>
+    <%= f.label 'Post Title' %>
+    <%= f.text_field :title %>
+     <%= f.label 'When did this happen?' %>
+    <%= f.text_field :year %>
+    <%= f.label 'Insert Notes & Data here:' %>
+    <%= f.text_area :content %>
+    <%= f.submit "Upload Post" %>
 <% end %>
