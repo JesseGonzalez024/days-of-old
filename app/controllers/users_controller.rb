@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    #skip_before_action :require_login, only: [:new, :create]
     
     def new
         @user = User.new
@@ -11,7 +10,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to :action => "show", :id => @user.id
         else 
-            render 'new'
+            render :new
         end
     end
     def show
@@ -29,7 +28,8 @@ class UsersController < ApplicationController
     end
     def destroy
         @user = User.find_by_id(params[:id])
-        if @user == session[:user_id]
+        binding.pry
+        if logged_in?
             @user.destroy
             redirect_to '/'
         end
@@ -38,8 +38,5 @@ class UsersController < ApplicationController
     private
         def user_params
             params.require(:user).permit(:username, :password)
-        end
-        def require_login
-            return head(:forbidden) unless session.include? :user_id
         end
 end

@@ -14,13 +14,15 @@ ActiveRecord::Schema.define(version: 2020_02_12_022453) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
-    t.string "post_id"
+    t.integer "post_id"
+    t.integer "user_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.string "year"
+    t.integer "year"
+    t.string "era"
     t.integer "user_id"
   end
 

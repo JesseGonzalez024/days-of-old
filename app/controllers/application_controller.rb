@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :email_striper
     
     def welcome
     end
@@ -11,18 +11,13 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find_by_id(session[:user_id])
     end
 
-    # def belongs_to_user?(trip)
-    #     if @trip != nil
-    #       if current_user.id != @trip.user_id
-    #         binding.pry
-    #         erb :welcome
-    #       end
-    #     end
-    #   end
-  
-    #   def validate
-    #     if !logged_in? || @trip == nil || current_user.id != @trip.user_id
-    #       redirect to '/'
-    #     end
-    #   end
+    def email_striper(email)
+        username = email.split(/@gmail.com/)
+        username[0]
+    end
+
+    #Create a helper method that verifies if the items belogn to the user
+        #If items belong to use then CRUD functions become available.
+        #Else User is asked to sign in.
+
 end

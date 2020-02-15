@@ -1,11 +1,13 @@
-<h2>Edit or Delete your account</h2>
+<% if logged_in? %>
+    <h2>Edit or Delete your account</h2>
 
-<%= form_for @user do |f| %>
-    <%= f.label 'Username' %>
-    <%= f.text_field :username %>
-    <%= f.submit "Edit User Name" %>
-<% end %>
-<br>
-<%= button_to 'Deactivate Account', user_path, method: :delete %>
-<br>
-<%= button_to 'Return to Profile', user_path, method: :get %>
+    <%= form_for @user do |f| %>
+        <%= f.label 'Username' %>
+        <%= f.text_field :username %>
+        <%= f.submit "Edit User Name" %>
+    <% end %>
+    <br>
+    <%= button_to 'Deactivate Account', user_path, method: :delete %>
+    <br>
+    <%= button_to 'Return to Profile', user_path, method: :get %>
+<% end %>    

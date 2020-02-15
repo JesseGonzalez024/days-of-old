@@ -15,7 +15,6 @@ body {
    margin-top: 40px;
    padding: 3.25%;
    width: 85%;
-   length: auto;
 }
 
 h4 {
@@ -34,5 +33,15 @@ main {
     border-left:solid black 3px;
     margin-left: 70px;
 
+}
+
+#main_header {
+    top: 0;
+    font-family: Arnoldboecklin, fantasy;
+    font-size: 60px;
+    color: black;
+    text-align: right;
+    margin-top: 0;
+    margin-bottom: 0; 
 }
 

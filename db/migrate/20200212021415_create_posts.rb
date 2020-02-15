@@ -3,7 +3,8 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     create_table :posts do |t|
       t.string :title
       t.string :content
-      t.string  :year
+      t.integer :year
+      t.string :era
       t.integer :user_id
     end
   end

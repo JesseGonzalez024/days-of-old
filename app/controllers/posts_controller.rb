@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-    before_action :require_login
+    before_action :require_login, only: [:index, :new, :create, :destroy]
+    
     
     def index
         @posts = Post.all
@@ -31,9 +32,9 @@ class PostsController < ApplicationController
     end
     
     private
-    def post_params
-        params.require(:post).permit(:title, :year, :content)
-    end
+        def post_params
+            params.require(:post).permit(:title, :year, :content)
+        end
         def require_login
             return head(:forbidden) unless session.include? :user_id
         end
