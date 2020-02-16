@@ -14,6 +14,7 @@
     <div id="time_line">
     <br>
       <% Post.all.each do |post| %>
+        <% Post.if_user_does_not_exist %>
         <ul>
           <li><%= link_to "#{post.title}", post_path(post) %></li>
         </ul>

@@ -1,18 +1,21 @@
 <fieldset>
     <legend><h4><%= @post.title %></h4></legend>
-    <p><%= @post.year %></p>
+    <p><%= @post.year%>   <%= @post.era%></p>
     <p><%= @post.content %></p>
     <br>
+    <p>Post created by: <h5><%= @post.user.username %></h5></p>
         <% unless @post.comments.count == 0 %>
             <fieldset>
                 <legend><h4>Comments:</h4></legend>   
-                <% @post.comments.each do |comment| %>
-                    <br>
-                        <ul>
-                            <li><p><%= comment.text %></p></li>
-                        </ul>
-                <% end %>
-            </fieldset>
+                    <% @post.comments.each do |comment| %>
+                        <% if comment.user != nil %>
+                            <br>
+                                <ul>
+                                    <li><p><%= comment.text %> by <%= comment.user.username %></p></li>
+                                </ul>
+                        <% end%>
+                    <% end %>
+                </fieldset>
         <% end %> 
 </fieldset>
 <br>
@@ -20,7 +23,9 @@
     <br>
     <%= button_to 'Add Comment', new_post_comment_path(@post), method: :get %>
     <br>
-    <%= button_to 'Delete Post', post_path(@post), method: :delete %>
+    <% if belongs_to_user?(@post)%>
+        <%= button_to 'Delete Post', post_path(@post), method: :delete %>
+    <% end %>
     <br>
     <%= button_to 'Return to Profile', user_path(current_user), method: :get %>
 <% else %>

@@ -28,14 +28,15 @@ class UsersController < ApplicationController
     end
     def destroy
         @user = User.find_by_id(params[:id])
-        binding.pry
         if logged_in?
             @user.destroy
             redirect_to '/'
+            flash[:error] = "Your account has been deleted :("
         end
     end
 
     private
+        
         def user_params
             params.require(:user).permit(:username, :password)
         end

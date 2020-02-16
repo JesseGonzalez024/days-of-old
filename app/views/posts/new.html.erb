@@ -1,4 +1,4 @@
-Create a new post
+<h3>Create a new Post</h3>
 
 <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -11,12 +11,23 @@ Create a new post
     </div>
 <% end %>
 
+<h5><%= flash[:error] %></h5>
 <%= form_for @post do |f| %>
-    <%= f.label 'Post Title' %>
+    <%= f.label 'Give the historic event a title!' %>
     <%= f.text_field :title %>
-     <%= f.label 'When did this happen?' %>
+    <br>
+    <br>
+    <%= f.label 'Under which Year?' %>
     <%= f.text_field :year %>
-    <%= f.label 'Insert Notes & Data here:' %>
+    <br>
+    <br>
+    <%= f.label 'Select an era' %>
+    <%= f.select :era, options_for_select(['Before Common Era (BC)', 'Common Era (AD)']) %>
+    <br>
+    <br>
+    <%= f.label 'Notes & Data:' %>
     <%= f.text_area :content %>
+    <br>
+    <br>
     <%= f.submit "Upload Post" %>
 <% end %>
