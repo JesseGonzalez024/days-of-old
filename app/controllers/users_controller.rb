@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     
     def new
-        validate
         @user = User.new
     end
     def create
