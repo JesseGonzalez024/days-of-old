@@ -6,10 +6,6 @@ class Post < ApplicationRecord
     has_many :comments
     has_many :users, through: :comments
 
-    
-    binding.pry    
-
-
     def self.if_user_does_not_exist
         Post.all.each do |post|
             if post.user == nil
@@ -19,5 +15,20 @@ class Post < ApplicationRecord
                 post.destroy
             end
         end
+    end
+
+    # Client.order("created_at DESC")
+    # # OR
+    # Client.order("created_at ASC")
+    #Client.where(first_name: 'Lifo')
+
+    def self.common_era_posts
+        posts = Post.order("year ASC").where(era: 'Common Era (AD)')
+        return posts
+    end
+
+    def self.before_common_era
+        posts = Post.order("year DESC").where(era: 'Before Common Era (BC)')
+        return posts
     end
 end

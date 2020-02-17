@@ -22,8 +22,15 @@ class UsersController < ApplicationController
     def update
         if current_user
             @user = User.find(params[:id])
-            @user.update(username: params[:user][:username])
-            redirect_to user_path(@user)
+            if @user.valid?
+                binding.pry
+                @user.update(username: params[:user][:username])
+                redirect_to user_path(@user)
+            else
+                binding.pry
+                flash[:error] = "Username already Taken"
+                redirect_to edit_user_path(@user)
+            end
         end
     end
     def destroy
