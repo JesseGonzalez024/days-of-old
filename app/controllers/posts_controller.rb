@@ -6,11 +6,13 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
     
-    def new 
+    def new
+        validate
         @post = Post.new
     end
     
     def create
+        validate
         @post = Post.new(post_params)
         @post.user_id = session[:user_id]
         
@@ -27,6 +29,7 @@ class PostsController < ApplicationController
     end
     
     def destroy
+        validate
         @post = Post.find_by_id(params[:id])
         if current_user
             @post.destroy

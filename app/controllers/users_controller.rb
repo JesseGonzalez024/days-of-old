@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     
     def new
+        validate
         @user = User.new
     end
     def create
@@ -14,32 +15,29 @@ class UsersController < ApplicationController
         end
     end
     def show
+        validate
         @user = User.find_by_id(params[:id])
     end
     def edit
+        validate
         @user = User.find_by_id(params[:id])
     end
     def update
-        if current_user
+        validate
             @user = User.find(params[:id])
             if @user.valid?
-                binding.pry
                 @user.update(username: params[:user][:username])
                 redirect_to user_path(@user)
             else
-                binding.pry
-                flash[:error] = "Username already Taken"
-                redirect_to edit_user_path(@user)
+                render :edit
             end
-        end
     end
     def destroy
+        validate
         @user = User.find_by_id(params[:id])
-        if logged_in?
-            @user.destroy
-            redirect_to '/'
-            flash[:error] = "Your account has been deleted :("
-        end
+        @user.destroy
+        redirect_to '/'
+        flash[:error] = "Your account has been deleted :("
     end
 
     private

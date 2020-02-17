@@ -1,6 +1,6 @@
 <% if logged_in? %>
 
-<%= render partials:'layouts/errors', local: {object: @user} %>
+<%= render partial:'layouts/errors', locals: {object: @user} %>
 
 <h5><%= flash[:error] %></h5>
     <h2>Edit or Delete your account</h2>

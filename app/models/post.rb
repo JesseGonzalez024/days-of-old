@@ -9,18 +9,13 @@ class Post < ApplicationRecord
     def self.if_user_does_not_exist
         Post.all.each do |post|
             if post.user == nil
-                post.comments.each do |coment|
+                post.comments.each do |comment|
                     comment.destroy
                 end
                 post.destroy
             end
         end
     end
-
-    # Client.order("created_at DESC")
-    # # OR
-    # Client.order("created_at ASC")
-    #Client.where(first_name: 'Lifo')
 
     def self.common_era_posts
         posts = Post.order("year ASC").where(era: 'Common Era (AD)')

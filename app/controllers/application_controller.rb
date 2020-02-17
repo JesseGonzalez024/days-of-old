@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?, :email_striper, :belongs_to_user?
+    helper_method :current_user, :logged_in?, :email_striper, :belongs_to_user?, :validate
     
     def welcome
     end
@@ -15,11 +15,16 @@ class ApplicationController < ActionController::Base
         username = email.split(/@gmail.com/)
         username[0]
     end
+        
+        def validate
+            if !logged_in?
+                flash[:error] = "Please Log in"
+                redirect_to '/'
+            end
+        end
 
-        #Create a helper method that verifies if the items belogn to the user
-        #If items belong to the correct user, then CRUD functions become available.
-        #Else User is asked to sign in.
-    def belongs_to_user?(post)
+
+        def belongs_to_user?(post)
         if @post != nil
             if current_user.id == @post.user_id
                 return true

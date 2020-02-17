@@ -13,6 +13,7 @@
     <h4>The Great Unknown...</h4>
     <div id="time_line">
     <br>
+    <% Post.if_user_does_not_exist %>
     <h5>Before the Common Era:</h5>
       <% Post.before_common_era.each do |post| %>
         <ul>
