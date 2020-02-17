@@ -1,24 +1,55 @@
-# README
+# Days Of Old
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is this?
 
-Things you may want to cover:
+Days Of Old was created with the history enthusiast in mind. At its heart, the design features similar social media basics with Historical Events as the topic of each POST. Comments by users are always welcomed in order to converse over the always controversial and mysterious history that is our world. Days Of Old takes no side in any topic, but chooses to remain Neurtal in all regards whether it be Political, Religious or of any other agenda oriented parties.
 
-* Ruby version
+### Dependencies
 
-* System dependencies
+* Ruby 2.6.1 or higher
+* Your favorite browser!
 
-* Configuration
+### Installing
 
-* Database creation
+* Repo can be found [here](https://github.com/JesseGonzalez024/days-of-old.git)
 
-* Database initialization
+### Executing program
 
-* How to run the test suite
+* Fork and clone repo
+* Run Bundle
+```
+bundle install
+```
+* Run
+```
+rails s
+```
+* Or
+```
+rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Help
 
-* Deployment instructions
+Anything added to Issues will be looked over and replied to as soon as possible.
 
-* ...
+## Authors
+
+Contributors names and contact info
+
+Jesse Gonzalez 
+GitHub: [JesseGonzalez024](https://github.com/JesseGonzalez024)
+Twitter: [@JesseGonz024](https://twitter.com/JesseGonz024)
+
+## Version History
+
+* 01.0
+    * Initial Release
+
+## License
+
+This project is licensed under the [MIT] License - see the LICENSE.md file for details
+
+## Acknowledgments
+
+* Background Image: (https://2b2gdzjtaey3o01p41qinbri-wpengine.netdna-ssl.com/wp-content/uploads/1453-The-Fall-of-Constantinople.jpg)
