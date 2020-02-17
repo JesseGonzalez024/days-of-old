@@ -18,8 +18,7 @@ class PostsController < ApplicationController
             @post.save
             redirect_to :action => "index"
         else
-           #add a flash error  
-           render :new
+            render :new
         end
     end
     
