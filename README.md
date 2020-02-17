@@ -7,6 +7,7 @@ Days Of Old was created with the history enthusiast in mind. At its heart, the d
 ### Dependencies
 
 * Ruby 2.6.1 or higher
+* Rails 6.0.2.1
 * Your favorite browser!
 
 ### Installing
@@ -43,7 +44,7 @@ Twitter: [@JesseGonz024](https://twitter.com/JesseGonz024)
 
 ## Version History
 
-* 01.0
+* 1.0
     * Initial Release
 
 ## License
